@@ -74,7 +74,8 @@ Desktop.ini
 $RECYCLE.BIN/
 
 #Database access
-/**DataSoruce.Java
+cupcake/src/main/java/DatabaseAcces/DataSource1.java
+
 
 # Windows Installer files
 *.cab

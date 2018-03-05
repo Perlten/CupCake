@@ -16,7 +16,7 @@
         <a href="Login.jsp"> login </a>
         <br>
         <a href="Order.jsp"> Order </a>
-        
+        <p>Hej med dig</p>
         
         <%
             if(session.getAttribute("user") != null){
