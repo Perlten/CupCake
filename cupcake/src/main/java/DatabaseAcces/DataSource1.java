@@ -12,6 +12,7 @@ public class DataSource1 {
         dataSource.setUser("perlt");
         dataSource.setPassword("admin");
         dataSource.setDatabaseName("cupcake");
+        //Hej med dig
     }
     
     public MysqlDataSource getDataSource(){
