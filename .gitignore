@@ -88,7 +88,6 @@ $RECYCLE.BIN/
 # Created by https://www.gitignore.io/api/maven
 
 ### Maven ###
-pom.xml
 target/
 pom.xml.tag
 pom.xml.releaseBackup
