@@ -15,12 +15,12 @@
     <body>
         <%@include file="includes/Menu.jsp" %>
         <div id="createUser">
-        <h1>New User</h1>
-        <form action="CreateUserControl" method="post"> Username: <br>
-            <input type="text" name="username"> <br> Password <br>
-            <input type="password" name="password"> <br> <br>
-            <input type="submit" value="Enter">
-        </form>
+            <h1>New User</h1>
+            <form action="CreateUserControl" method="post"> Username: <br>
+                <input type="text" name="username"> <br> Password <br>
+                <input type="password" name="password"> <br> <br>
+                <input type="submit" value="Enter">
+            </form>
         </div>
     </body>
 </html>
