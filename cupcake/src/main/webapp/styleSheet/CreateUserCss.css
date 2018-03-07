@@ -1,6 +1,21 @@
-
-
 #createUser{
-    
-    
+    text-align: center;
+    border-style: solid;
+    margin: 30px;
+    padding: 20px;
+    background-color: #3F250B;
+    color: #FFFDD0; 
+}
+
+body{
+    background-color: chocolate;
+    background-size: 400px;
+    background-repeat: no-repeat;
+    background-image: url(cupcake.jpg);
+    background-position: left bottom;
+    background-attachment: fixed;
+}
+
+p{
+    color: #FFFDD0; 
 }
