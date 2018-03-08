@@ -12,11 +12,9 @@
     <body>
         <%@include file="includes/Menu.jsp" %>
         <h1>Front page!</h1>
-        <a href="CreateUser.jsp"> New User </a>  
-        <br>
-        <a href="Login.jsp"> login </a>
-        <br>
-        <a href="Order.jsp"> Order </a>
+        <form action="CreateUser.jsp"> <input type="submit" value="Create user"> </form>
+        <form action="Login.jsp"> <input type="submit" value="Login"> </form>
+        <form action="Order.jsp"> <input type="submit" value="Order"> </form>
         
         <%
             if(session.getAttribute("user") != null){
@@ -24,7 +22,7 @@
             User user = (User) o;
             %>
             <p>Logged in as</p>
-            <a href="UserPage.jsp"> <%out.print(user.getUsername());%> </a>
+            <form action="UserPage.jsp"> <input type="submit" value="<% out.print(user.getUsername()); %>"> </form>
             <%
             }
         %>

@@ -38,7 +38,7 @@
 
         <% if (user.isIsAdmin()) {
         %>
-        <a href="AdminPage.jsp"> Admin Page </a>
+        <form action="AdminPage.jsp"> <input type="submit" value="Admin page"> </form>
         <%
         }%>
                 
