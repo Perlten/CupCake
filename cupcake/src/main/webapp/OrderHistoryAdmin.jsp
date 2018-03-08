@@ -16,7 +16,9 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
-        <link href="styleSheet/CreateUserCss.css" rel="stylesheet" type="text/css"/>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     </head>
     <body>
         <%@include file="includes/Menu.jsp" %>
@@ -26,23 +28,40 @@
             User user = (User) session.getAttribute("user");
             List<OrderEntity> list = dm.getAllOrders(user);
         %>
-
-        <%
-            List<Integer> numList = new ArrayList<>();
-            for (OrderEntity x : list) {
-                if (!numList.contains(x.getOrderId())) {
-        %>
-        <p> Order id: <% out.print(x.getOrderId()); %> Price: <% out.print(x.getPrice() * x.getAmount()); %>  </p>
-        <form action="AdminEkstraOrderInfo.jsp" method="post">
-            <input type="hidden" name="orderId" value="<% out.print(x.getOrderId()); %>">
-            <input type="submit" value="More info">
-        </form>
-        <%
-                    numList.add(x.getOrderId());
-                }
-            }%>
-
-
-
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-4">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Order id</th>
+                                <th>Price</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <%
+                                List<Integer> numList = new ArrayList<>();
+                                for (OrderEntity x : list) {
+                                    if (!numList.contains(x.getOrderId())) {
+                            %>
+                            <tr>
+                                <td><% out.print(x.getOrderId()); %></td>
+                                <td><% out.print(x.getPrice()); %></td>
+                                <td><form action="AdminEkstraOrderInfo.jsp" method="post"> 
+                                        <input type="hidden" name="orderId" value="<% out.print(x.getOrderId()); %>"> 
+                                        <input type="submit" value="More info"> 
+                                    </form></td>
+                                    <%
+                                                numList.add(x.getOrderId());
+                                            }
+                                        }%>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
     </body>
 </html>
+
+

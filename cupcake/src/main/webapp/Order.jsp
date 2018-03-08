@@ -27,12 +27,12 @@
             DataMapper dm = new DataMapper();
             List<Topping> toppingList = dm.getToppingList();
             List<Bottom> bottomList = dm.getBottomList();
-
         %>
         <h1>Order</h1>
         <div class="container-fluid">
+            <div class="row">
             <form action="AddToCart" method="post">
-                <div class="col-md-2">
+                <div class="col-md-3">
                     <%            if (session.getAttribute("shoppingList") != null) {
                             List<OrderEntity> shoppingList = (List<OrderEntity>) session.getAttribute("shoppingList");
                     %>
@@ -104,13 +104,13 @@
                         </select>
                     </div>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-5">
                     <img src="styleSheet/cupcake.jpg" class="img-rounded" width="100%" height="100%">
                 </div>
             </form>
         </div>
         <!--TODO: fix so you can buy and the button is not wired placed-->
-
+        </div>
     </body>
 
 </html>

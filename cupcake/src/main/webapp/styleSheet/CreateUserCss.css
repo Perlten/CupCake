@@ -13,7 +13,7 @@ body{
     background-size: 400px;
     background-repeat: no-repeat;
     background-image: url(cupcake.jpg);
-    background-position: left bottom;
+    background-position: right bottom;
     background-attachment: fixed;
 }
 
