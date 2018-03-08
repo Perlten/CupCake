@@ -69,7 +69,6 @@
                             for (OrderEntity x : orderList) {
                                 totalPrice += x.getPrice() * x.getAmount();
                         %>
-                        <div class="overFlow">
                         <p> 
                             Order Id: <% out.print(x.getOrderId()); %> <br>
                             Topping: <% out.print(x.getTopping()); %> <br>
@@ -85,7 +84,6 @@
                             <input type="hidden" name="bottom" value="<% out.print(x.getBottom()); %>">
                             <input type="submit" value="Enter">
                         </form>
-                        </div>
                         <%
                             }
                         %>
