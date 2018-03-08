@@ -31,7 +31,7 @@
         <h1>Order</h1>
         <div class="container-fluid">
             <div class="row">
-            <form action="AddToCart" method="post">
+            <form action="BuyOrAddToCart" method="post">
                 <div class="col-md-3">
                     <%            if (session.getAttribute("shoppingList") != null) {
                             List<OrderEntity> shoppingList = (List<OrderEntity>) session.getAttribute("shoppingList");
@@ -69,7 +69,9 @@
                         </select>
                     </div>
 
-                    <input type="submit" value="Add to cart">
+                    <input type="submit" name="test" value="Add to cart">
+                    <br>
+                    <input type="submit" name="test" value="Buy">
                     <br>
                     <!--<form action="BuyControl">  <input type="submit" value="buy"> </form>-->
                 </div>
