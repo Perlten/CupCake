@@ -10,6 +10,7 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -23,21 +24,22 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet(name = "ChangePrice", urlPatterns = {"/ChangePrice"})
 public class ChangePrice extends HttpServlet {
 
-   
     protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, SQLException {
         response.setContentType("text/html;charset=UTF-8");
-        
-        int newPrice = Integer.parseInt(request.getParameter("newPrice"));  
+
+        int newPrice = Integer.parseInt(request.getParameter("newPrice"));
         int orderId = Integer.parseInt(request.getParameter("orderId"));
 
         String topping = request.getParameter("topping");
         String bottom = request.getParameter("bottom");
 
         DataMapper dm = new DataMapper();
-        
+
         dm.changePrice(orderId, newPrice, topping, bottom);
-        
-        response.sendRedirect("OrderHistoryAdmin.jsp");
+
+        String nextJSP = "/OrderHistoryAdmin.jsp";
+        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextJSP);
+        dispatcher.forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

@@ -5,6 +5,12 @@
    border-radius: 8px;
    box-shadow: 5px 10px;
    position: fixed;
+   max-height: 600px;
+   overflow: auto;
 }
 
+.makeFixed{
+    margin-right: 50px;
+    position: fixed;
+}
 

@@ -1,6 +1,3 @@
-<!DOCTYPE html>
-<html>
-<head>
 <style>
 ul {
     list-style-type: none;
@@ -29,9 +26,9 @@ li a:hover:not(.active) {
 .active {
     background-color: #4CAF50;
 }
+
+
 </style>
-</head>
-<body>
 
 <ul>
   <li><a href="Index.jsp">Home</a></li>
@@ -39,5 +36,3 @@ li a:hover:not(.active) {
   <li style="float:right"><a class="active" href="#about">About</a></li>
 </ul>
 
-</body>
-</html>

@@ -1,9 +1,3 @@
-<%-- 
-    Document   : OrderHistoryAdmin
-    Created on : Mar 1, 2018, 7:14:50 PM
-    Author     : Perlt
---%>
-
 <%@page import="java.util.ArrayList"%>
 <%@page import="entity.OrderEntity"%>
 <%@page import="java.util.List"%>
@@ -21,6 +15,7 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <link href="styleSheet/CreateBorder.css" rel="stylesheet" type="text/css"/>
     </head>
+
     <body>
         <%@include file="includes/Menu.jsp" %>
         <h1>Order history Admin</h1>
@@ -50,7 +45,7 @@
                                 <td><% out.print(x.getPrice()); %></td>
                                 <td><form action="OrderHistoryAdmin.jsp" method="post"> 
                                         <input type="hidden" name="orderId" value="<% out.print(x.getOrderId()); %>"> 
-                                        <input type="submit" value="More info"> 
+                                        <input type="submit" class="btn btn-primary" value="More info">
                                     </form></td>
                                     <%
                                                 numList.add(x.getOrderId());
@@ -60,40 +55,47 @@
                         </tbody>
                     </table>
                 </div>
-                            
-                            <div class="col-md-4">
-                    <% if(request.getParameter("orderId") != null) {
-                        int orderId = Integer.parseInt(request.getParameter("orderId"));
-                        List<OrderEntity> orderList = dm.getOrderListById(orderId);
-                        int totalPrice = 0;
+
+                <div class="col-md-4">
+                    <% if (request.getParameter("orderId") != null) {
+                            int orderId = Integer.parseInt(request.getParameter("orderId"));
+                            List<OrderEntity> orderList = dm.getOrderListById(orderId);
+                            int totalPrice = 0;
                     %>
 
 
                     <div class="makeBorder">
-                    <%
-                        for (OrderEntity x : orderList) {
-                            totalPrice += x.getPrice() * x.getAmount();
-                    %>
-                    <p> 
-                        Order Id: <% out.print(x.getOrderId()); %> <br>
-                        Topping: <% out.print(x.getTopping()); %> <br>
-                        Bottom: <% out.print(x.getBottom()); %> <br>
-                        Price: <% out.print(x.getPrice()); %> <br>
-                        Amount: <% out.print(x.getAmount()); %> <br>
-                    </p>
-                    <p>New price</p>
-                    <form action="ChangePrice" method="get">
-                        <input type="number" name="newPrice"> 
-                        <input type="hidden" name="orderId" value="<% out.print(x.getOrderId()); %>">
-                        <input type="hidden" name="topping" value="<% out.print(x.getTopping()); %>">
-                        <input type="hidden" name="bottom" value="<% out.print(x.getBottom()); %>">
-                        <input type="submit" value="Enter">
-                    </form>
-                    <%
-                        }
-                    %>
-                    <p>Total price: <% out.print(totalPrice);%></p>
-                    <% } %>
+                        <%
+                            for (OrderEntity x : orderList) {
+                                totalPrice += x.getPrice() * x.getAmount();
+                        %>
+                        <div class="overFlow">
+                        <p> 
+                            Order Id: <% out.print(x.getOrderId()); %> <br>
+                            Topping: <% out.print(x.getTopping()); %> <br>
+                            Bottom: <% out.print(x.getBottom()); %> <br>
+                            Price: <% out.print(x.getPrice()); %> <br>
+                            Amount: <% out.print(x.getAmount()); %> <br>
+                        </p>
+                        <p>New price</p>
+                        <form action="ChangePrice" method="get">
+                            <input type="number" name="newPrice"> 
+                            <input type="hidden" name="orderId" value="<% out.print(x.getOrderId()); %>">
+                            <input type="hidden" name="topping" value="<% out.print(x.getTopping()); %>">
+                            <input type="hidden" name="bottom" value="<% out.print(x.getBottom()); %>">
+                            <input type="submit" value="Enter">
+                        </form>
+                        </div>
+                        <%
+                            }
+                        %>
+                        <p>Total price: <% out.print(totalPrice);%></p>
+                    </div>
+                </div>
+                <% }%>
+                <div class="col-md-4">
+                    <div class="makeFixed">
+                        <img src="styleSheet/cupcake.jpg" class="img-rounded" width="100%" height="100%">
                     </div>
                 </div>
             </div>

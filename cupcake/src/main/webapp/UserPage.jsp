@@ -10,6 +10,9 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <title>JSP Page</title>
         <link href="styleSheet/CreateUserCss.css" rel="stylesheet" type="text/css"/>
     </head>
@@ -27,18 +30,18 @@
         <p>Add funds</p>
         <form action="AddFunds" method="post">
             <input type="number" name="amount">
-            <input type="submit" value="Enter">
+               <input type="submit" class="btn btn-primary" value="Enter">
         </form>
         <br>
         <form action="OrderHistory.jsp">
-            <input type="submit" value="Order history">
+               <input type="submit" class="btn btn-primary" value="Order history">
         </form>
         <br>
         
 
         <% if (user.isIsAdmin()) {
         %>
-        <form action="AdminPage.jsp"> <input type="submit" value="Admin page"> </form>
+        <form action="AdminPage.jsp">    <input type="submit" class="btn btn-primary" value="Admin page"> </form>
         <%
         }%>
                 
